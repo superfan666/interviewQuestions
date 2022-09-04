@@ -16,6 +16,25 @@
 2.1 Class<?> cls = Class.forName("class.name"); Object obj = cls.newInstance();
 2.2 Class<?> cls = Class.forName("class.name"); Construct<?> con = cls.getConstructor(String.class,String.class); Object obj = con.newInstance(str1,str2);
 
+3.对象加载的过程，属性先加载还是方法先加载
+父类静态属性 (可以是对象) 和静态代码块，看其在类中的先后顺序
+
+子类静态属性和静态代码块 ，看其在类中的先后顺序
+
+父类非静态属性和非静态代码块 ，看其在类中的先后顺序
+
+父类构造方法
+
+子类非静态属性和非静态代码块 ，看其在类中的先后顺序
+
+子类构造方法
+
+规律：
+1.静态属性和代码块，跨类高优先级；
+2.非静态属性和代码块同类中优先级高于构造函数；
+3.静态和非静态的属性和代码块的加载顺序，同对应的定义顺序。
+
+4.垃圾回收机制与jvm结构
 
 《设计模式》
 1.代理模式与装饰模式的区别，手写一个静态代理，一个动态代理
@@ -27,8 +46,8 @@ D.动态代理，java运行期间，根据代码业务需要，通过JDK或CGLIB
 代码见Examples-->DynamicProxy
 
 
-4.对象加载的过程，属性先加载还是方法先加载
-5.垃圾回收机制与jvm结构
+
+
 6.自定义View,事件分发机制讲一讲
 7.http与https有什么区别
 8.Activity启动模式，以及各启动模式生命周期问题
